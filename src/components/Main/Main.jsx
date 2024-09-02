@@ -1,8 +1,34 @@
-import "./Main.css"
-import { assets } from "../../assets/assets"
+import "./Main.css";
+import { assets } from "../../assets/assets";
+import { useState, useEffect } from "react";
 
 export const Main = () => {
-  const { user_icon, compass_icon, bulb_icon, code_icon, message_icon, gallery_icon, mic_icon, send_icon } = assets;
+  const [name, setName] = useState("");
+  const [showPrompt, setShowPrompt] = useState(true);
+
+  // useEffect(() => {
+  //   const username = prompt("Enter your Name")
+  //   if(username !== null) setName(username)
+  // }, [name]);
+
+  const handleNameSubmit = (event) => {
+    event.preventDefault();
+    const username = event.target.elements.name.value;
+    setName(username);
+    setShowPrompt(false);
+  };
+
+  const {
+    user_icon,
+    compass_icon,
+    bulb_icon,
+    code_icon,
+    message_icon,
+    gallery_icon,
+    mic_icon,
+    send_icon,
+  } = assets;
+
   return (
     <div className="main">
       <div className="nav">
@@ -12,7 +38,17 @@ export const Main = () => {
       <div className="main-container">
         <div className="greet">
           <p>
-            <span>Hello, Sohail</span>
+            {showPrompt && (
+              <div className="custom-prompt">
+                <p>Enter Your Name</p>
+                <form onSubmit={handleNameSubmit}>
+                  {/* <label htmlFor="name">Enter your Name:</label> */}
+                  <input type="text" id="name" name="name" required autoFocus/>
+                  <button type="submit">Enter</button>
+                </form>
+              </div>
+            )}
+            <span>Hello, {name}</span>
           </p>
           <p>How Can I Help You Today?</p>
         </div>
@@ -51,4 +87,4 @@ export const Main = () => {
       </div>
     </div>
   );
-}
+};
