@@ -1,10 +1,11 @@
 import "./Main.css";
 import { assets } from "../../assets/assets";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 
 export const Main = () => {
   const [name, setName] = useState("");
-  const [showPrompt, setShowPrompt] = useState(true);
+  const [showPrompt, setShowPrompt] = useState(false);
+  const usernameRef = useRef(null);
 
   // useEffect(() => {
   //   const username = prompt("Enter your Name")
@@ -16,6 +17,16 @@ export const Main = () => {
     const username = event.target.elements.name.value;
     setName(username);
     setShowPrompt(false);
+
+    // usernameRef.current.classList.add("animate-username");
+
+    // Reset animation
+    if (usernameRef.current) {
+      usernameRef.current.classList.remove("animate-username");
+      // Trigger reflow to restart animation
+      void usernameRef.current.offsetWidth;
+      usernameRef.current.classList.add("animate-username");
+    }
   };
 
   const {
@@ -37,19 +48,21 @@ export const Main = () => {
       </div>
       <div className="main-container">
         <div className="greet">
-          <p>
+          <div>
             {showPrompt && (
               <div className="custom-prompt">
                 <p>Enter Your Name</p>
                 <form onSubmit={handleNameSubmit}>
                   {/* <label htmlFor="name">Enter your Name:</label> */}
-                  <input type="text" id="name" name="name" required autoFocus/>
+                  <input type="text" id="name" name="name" required autoFocus />
                   <button type="submit">Enter</button>
                 </form>
               </div>
             )}
-            <span>Hello, {name}</span>
-          </p>
+            <span>
+              Hello, <span className="username" ref={usernameRef}> {name || "Sohail"} </span>
+            </span>
+          </div>
           <p>How Can I Help You Today?</p>
         </div>
         <div className="cards">
