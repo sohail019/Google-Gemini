@@ -48,8 +48,8 @@
   animation: prompt_popup 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.custom-prompt p{
-    margin-bottom: 20px;
+.custom-prompt p {
+  margin-bottom: 20px;
 }
 .custom-prompt form {
   display: inline-flex;
@@ -72,8 +72,8 @@
   border-radius: 10px 0px 0px 10px;
 }
 
-.custom-prompt input:focus{
-    outline: none;
+.custom-prompt input:focus {
+  outline: none;
 }
 
 .custom-prompt button {
@@ -91,9 +91,9 @@
   -webkit-text-fill-color: transparent;
 }
 
-.main .greet span .username{
-    animation: username 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    opacity: 0;
+.main .greet span .username {
+  animation: username 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  opacity: 0;
 }
 
 .main .cards {
@@ -176,6 +176,57 @@
   font-weight: 400;
 }
 
+.result {
+  padding: 0px 5%;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.result-title {
+  margin: 40px 0px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.result img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.result-data {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.result-data p{
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.loader{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loader hr{
+  border-radius: 4px;
+  border: none;
+  background-color: #f6f7f8;
+  background: linear-gradient(to right, #9ed7ff, #fff, #9ed7ff);
+  background-size: 800px 50px;
+  height: 20px;
+  animation: loader 3s infinite linear;
+}
+
 @keyframes prompt_popup {
   0% {
     transform: translateY(-1000px);
@@ -199,6 +250,15 @@
   }
 }
 
-.animate-username{
-    animation-play-state: running;
+.animate-username {
+  animation-play-state: running;
+}
+
+@keyframes loader {
+  0%{
+    background-position: -800px 0px;
+  }
+  100%{
+    background-position: 800px 0px;
+  }
 }
