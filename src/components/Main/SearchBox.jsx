@@ -9,6 +9,9 @@ export const SearchBox = ({ input, setInput, onSent }) => {
     <div className="search-box">
       <input
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => {
+          if(e.key === "Enter") onSent()
+         } }
         value={input}
         type="text"
         placeholder="Enter a Prompt Here"
