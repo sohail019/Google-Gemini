@@ -3,9 +3,11 @@ import { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import { SidebarTop } from "./SidebarTop";
 import { SidebarBottom } from "./SidebarBottom";
+import { MobileSidebarToggle } from "./MobileSidebarToggle";
 
 export const Sidebar = () => {
   const [extended, setExtended] = useState(false);
+  const [isSidebarActive, setIsSidebarActive] = useState(false);
   const { onSent, prevPrompts, setRecentPrompt, newChat } = useContext(Context);
 
   const loadPrompt = async (prompt) => {
@@ -15,16 +17,25 @@ export const Sidebar = () => {
 
   const handleToggle = () => setExtended((prev) => !prev);
 
+  const toggleSidebar = () => setIsSidebarActive(!isSidebarActive);
+
   return (
-    <div className={`sidebar ${extended ? 'expanded' : 'collapsed'}`}>
-      <SidebarTop
-        extended={extended}
-        onToggle={handleToggle}
-        newChat={newChat}
-        loadPrompt={loadPrompt}
-        prevPrompts={prevPrompts}
-      />
-      <SidebarBottom extended={extended} />
-    </div>
+    <>
+      <MobileSidebarToggle toggleSidebar={toggleSidebar} />
+      <div
+        className={`sidebar ${extended ? "expanded" : "collapsed"} ${
+          isSidebarActive ? "active" : ""
+        }`}
+      >
+        <SidebarTop
+          extended={extended}
+          onToggle={handleToggle}
+          newChat={newChat}
+          loadPrompt={loadPrompt}
+          prevPrompts={prevPrompts}
+        />
+        <SidebarBottom extended={extended} />
+      </div>
+    </>
   );
 };
