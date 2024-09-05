@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import { SidebarTop } from "./SidebarTop";
 import { SidebarBottom } from "./SidebarBottom";
-import { MobileSidebarToggle } from "./MobileSidebarToggle";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export const Sidebar = () => {
   const [extended, setExtended] = useState(false);
@@ -21,7 +21,9 @@ export const Sidebar = () => {
 
   return (
     <>
-      <MobileSidebarToggle toggleSidebar={toggleSidebar} />
+      <div className="mobile-sidebar-toggle" onClick={toggleSidebar}>
+        <AiOutlineMenu onClick={handleToggle} className="menu" />
+      </div>
       <div
         className={`sidebar ${extended ? "expanded" : "collapsed"} ${
           isSidebarActive ? "active" : ""
@@ -36,6 +38,10 @@ export const Sidebar = () => {
         />
         <SidebarBottom extended={extended} />
       </div>
+
+      {isSidebarActive && (
+        <div className="overlay" onClick={toggleSidebar}></div>
+      )}
     </>
   );
 };

@@ -299,21 +299,126 @@
   }
 }
 
+@media (max-width: 900px) and (min-width: 600px) {
+  .nav {
+    padding: 15px;
+  }
+
+  .nav p {
+    font-size: 18px;
+  }
+
+  .main {
+    min-height: 90vh;
+  }
+
+  .main .greet {
+    font-size: 48px;
+    padding: 15px 50px;
+  }
+
+  .greet p {
+    font-size: 32px;
+  }
+
+  .main .cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 50px;
+  }
+
+  .main .card {
+    height: 180px;
+    padding: 10px;
+  }
+
+  .main .card p {
+    font-size: 15px;
+  }
+
+  .main .bottom-info {
+    font-size: 13px;
+  }
+
+  .search-box {
+    padding: 8px 15px;
+  }
+
+  .search-box input {
+    font-size: 16px;
+  }
+
+  .search-box img {
+    width: 22px;
+  }
+
+  .main .bottom-info {
+    font-size: 12px;
+  }
+
+  .result {
+    padding: 0px 3%;
+  }
+
+  .result-title {
+    margin: 30px 0px;
+  }
+
+  .result img {
+    width: 35px;
+  }
+
+  .result-data p {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 600px) {
   .nav{
      border-bottom: 1px solid;
+     padding: 10px;
+  }
+
+  .nav p{
+    margin-left: 40px;
+  }
+
+  .nav p span{
+    display: none;
+  }
+
+  .nav .theme-toggle{
+    margin-left: 70px;
+    z-index: 1000;
+  }
+
+  .nav .theme-name{
+    display: none;
+  }
+
+  .main{
+    height: 100vh;
   }
 
   .main .greet{
     margin: 0;
-    font-size: 53px;
+    font-size: 45px;
+    padding: 10px 0px 15px 20px;
+  }
+
+  .greet p{
+    font-size: 29px;
   }
 
   .main .cards{
     padding: 0px 20px;
   }
   .main .card{
-    height: 180px;
+    height: 140px;
+  }
+
+  .main .card p{
+    font-size: 14px;
   }
   
   .main-bottom input{
@@ -323,6 +428,10 @@
 
   .main-bottom img {
     width: 20px;
+  }
+
+  .main .bottom-info{
+    font-size: 12px;
   }
 
   .search-box{

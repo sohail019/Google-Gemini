@@ -1,144 +1,155 @@
-.sidebar{
-    min-height: 100vh;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #f0f4f9;
-    padding: 25px 15px;
-    transition: width 0.3s ease;
+.sidebar {
+  min-height: 100vh;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f0f4f9;
+  padding: 25px 15px;
+  transition: width 0.3s ease, left 0.3s ease;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
-.dark .sidebar{
-  background-color: #1E1F20;
+.dark .sidebar {
+  background-color: #1e1f20;
 }
 
 .sidebar.collapsed {
-    width: 80px; 
+  width: 80px;
+  /* background-color: aqua; */
 }
 
 .sidebar.expanded {
-    width: 250px; /* Width when expanded */
+  width: 250px;
 }
 
 .sidebar.active {
-    left: 0; /* Show sidebar on mobile */
+  left: 0; /* Show sidebar on mobile */
 }
 
 .sidebar img {
-    width: 20px;
+  width: 20px;
 }
 
-.sidebar .menu{
-    display: block;
-    font-size: 24px;
-    margin-left: 10px;
-    cursor: pointer;
+.sidebar .menu {
+  display: block;
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
-.dark .sidebar .menu{
-    color: #ccc;
+.dark .sidebar .menu {
+  color: #ccc;
 }
 
-.sidebar .new-chat{
-    margin-top: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 15px;
-    background-color: #e6eaf1;
-    border-radius: 50px;
-    font-size: 14px;
-    color: grey;
-    cursor: pointer;
+.sidebar .new-chat {
+  margin-top: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background-color: #e6eaf1;
+  border-radius: 50px;
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
 }
 
 .dark .sidebar .new-chat {
-    background-color: #1A1A1C;
-    color: #ccc;
+  background-color: #1a1a1c;
+  color: #ccc;
 }
 
-.sidebar .recent{
-    display: flex;
-    flex-direction: column;
-    animation: fadeIn 2s;
+.sidebar .recent {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 2s;
 }
 
-.sidebar .recent-title{
-    margin-top: 30px;
-    margin-bottom: 20px;
+.sidebar .recent-title {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.sidebar .recent-entry{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px;
-    padding-right: 40px;
-    border-radius: 50px;
-    cursor: pointer;
+.sidebar .recent-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  padding-right: 40px;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
-.sidebar .recent-entry:hover{
-    background-color: #e2e6eb;
+.sidebar .recent-entry:hover {
+  background-color: #e2e6eb;
 }
 
 .dark .sidebar .recent-entry:hover {
-    background-color: #1A1A1C;
+  background-color: #1a1a1c;
 }
 
-.sidebar .bottom{
-    display: flex;
-    flex-direction: column;
+.sidebar .bottom {
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar .bottom-item{
-    padding: 10px;
-    cursor: pointer;
+.sidebar .bottom-item {
+  padding: 10px;
+  cursor: pointer;
 }
 
-.sidebar .location-info{
-    animation: fadeIn 2s ease;
+.sidebar .location-info {
+  animation: fadeIn 3s ease;
 }
 
+/* Mobile-specific styles */
 .mobile-sidebar-toggle {
-    display: none;
+  display: none;
 }
 
+@media (max-width: 600px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
 
-@media (max-width: 600px){
-    .sidebar{
-        display: block;
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 400px;
-        z-index: 1000;
-        transition: left 0.3s ease;
-    }
+  .sidebar {
+    left: -100%;
+  }
 
-    .sidebar .menu{
+  .sidebar.active {
+    left: 0;
+  }
+
+  .mobile-sidebar-toggle {
+    display: block; /* Toggle button shown on mobile */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .sidebar .recent-entry {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .sidebar .new-chat {
+    white-space: normal;
+  }
+
+  .sidebar .menu {
     display: none;
-}
+  }
 
-    .sidebar.active {
-        left: 0; /* Slide in sidebar when active */
-    }
-
-    .sidebar.collapsed {
-        width: 0; /* Collapse fully when not active */
-    }
-
-    /* .sidebar.expanded {
-        width: 400px;
-    } */
-
-    .mobile-sidebar-toggle {
-        display: block; /* Show toggle button on mobile */
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1100;
-        font-size: 24px;
-        cursor: pointer;
-    }
+  .location-info p{
+    font-size: 12px;
+  }
 }

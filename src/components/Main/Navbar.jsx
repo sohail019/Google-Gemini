@@ -10,10 +10,10 @@ export const NavBar = () => {
 
   return (
     <div className="nav">
-      <p>Gemini by Sohail</p>
+      <p>Gemini <span>by Sohail</span></p>
       <div onClick={toggleTheme} className="theme-toggle">
         {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
-        <p>
+        <p className="theme-name">
         {theme === "light" ? "Light" : "Dark"}
         </p>
       </div>
