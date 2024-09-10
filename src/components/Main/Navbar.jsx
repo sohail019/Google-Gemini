@@ -10,7 +10,7 @@ export const NavBar = () => {
 
   return (
     <div className="nav">
-      <p>Gemini <span>by Sohailll</span></p>
+      <p>Gemini <span>by Sohail</span></p>
       <div onClick={toggleTheme} className="theme-toggle">
         {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
         <p className="theme-name">
