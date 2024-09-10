@@ -388,7 +388,7 @@
   }
 
   .nav .theme-toggle{
-    margin-left: 70px;
+    /* margin-left: 70px; */
     z-index: 1000;
   }
 
@@ -484,9 +484,9 @@
     padding: 10px;
   }
 
-  .main .card:last-child{
+  /* .main .card:last-child{
     display: none;
-  }
+  } */
 
   .main .card p{
     font-size: 15px;

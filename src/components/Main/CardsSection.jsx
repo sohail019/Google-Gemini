@@ -9,19 +9,19 @@ import { IoCodeSlashSharp } from "react-icons/io5";
 export const CardsSection = ({setInput, onSent}) => {
   const cards = [
     {
-      text: "Suggest Beautiful Places to see on an upcoming road trip",
+      text: "Suggest Beautiful Places to visit in Mumbai",
       icon: <FaRegCompass />,
     },
     {
-      text: "Briefly Summarize this concept: Urban Planning",
+      text: "Create trivia questions about a specific topic",
       icon: <FaRegLightbulb />,
     },
     {
-      text: "Brainstorm team bonding activities for our work retreat",
+      text: "Write a product description for a new type of toothbrush",
       icon: <FaRegMessage />,
     },
     {
-      text: "Improve the readability for the following code",
+      text: "Suggest Javascript framework to create Frontend",
       icon: <IoCodeSlashSharp />,
     },
   ];
